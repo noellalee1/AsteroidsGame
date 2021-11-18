@@ -15,9 +15,9 @@ public void draw()
 {
   //your code here
   background (0);
-  bob.showShip();
-  
- 
+  bob.show();
+
+
   bob.move();
   for (int i = 0; i < sally.length; i++) {
     sally[i].show();
@@ -26,16 +26,24 @@ public void draw()
 double i = 0;
 double d = 0;
 void keyPressed() {
-  
-  if ((key == 'D' || key == 'd')) {
+
+  if ((key == 'W' || key == 'w')) {
     i+=.1;
-    bob.accelerate(i);
+  } else if ((key =='S' || key == 's')) {
+    i = -.1;
+  } else if (key == ' ') {
+    bob.setXspeed(0);
+    bob.setYspeed(0);
+  }
+  bob.accelerate(i);
+
+  if ((key =='H' || key == 'h')) {
+    bob.hyperspace();
+  } 
+
+  if ((key =='D' || key == 'd')) {
+    bob.turn(5);
   } else if ((key =='A' || key == 'a')) {
-   i-=.1;
-   bob.accelerate(i);
-  } else if ((key =='H' || key == 'h')){
-     bob.hyperspace();
-  }else if ((key =='R' || key == 'r')){
-     bob.hyperspace();
-}
+    bob.turn(-5);
+  }
 }
