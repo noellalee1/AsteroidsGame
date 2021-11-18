@@ -9,26 +9,28 @@ class Spaceship extends Floater
     myCenterX = 250; 
     myCenterY = 250;
 
+    myPointDirection = 0;
+
     myColor = color (255);
-    
+
     myXspeed = 0;
     myYspeed = 0;
   }
-  public void showShip() {
-    fill (myColor);
-    triangle((float)(myCenterX+xCorners[0]), 
-      (float)(myCenterY+yCorners[0]), 
-      (float)(myCenterX+xCorners[1]), 
-      (float)(myCenterY+yCorners[1]), 
-      (float)(myCenterX+xCorners[2]), 
-      (float)(myCenterY+yCorners[2]));
+
+  public void hyperspace () {
+    myXspeed = 0;
+    myYspeed = 0;
+
+    myCenterX = (float)(Math.random()*500);
+    myCenterY = (float)(Math.random()*500);
+    myPointDirection = (float)(Math.random()*360);
   }
-  
-  public void hyperspace (){
-  myXspeed = 0;
-  myYspeed = 0;
-  
-  myCenterX = (float)(Math.random()*500);
-  myCenterY = (float)(Math.random()*500);
+
+  public void setXspeed(int x) {
+    myXspeed = 0;
+  }
+
+  public void setYspeed(int y) {
+    myYspeed = 0;
   }
 }
