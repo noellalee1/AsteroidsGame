@@ -13,6 +13,8 @@ class Star //note that this class does NOT extend Floater
   public void show() {
     fill (starColor);
     noStroke();
-    ellipse (starX, starY, 3, 3);
+    ellipse (starX, starY, 5, 5);
   }
 }
+
+//if spaceship reaches edge of screen, move the stars
