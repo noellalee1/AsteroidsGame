@@ -1,53 +1,25 @@
-//your variable declarations here
-Spaceship bob;
-Star[] sally;
-
-public void setup() 
-{
-  size(500, 500);
-  bob = new Spaceship();
-  sally = new Star[100];
-  for (int i = 0; i < sally.length; i++) {
-    sally[i] = new Star();
-  }
-}
-public void draw() 
+class Star //note that this class does NOT extend Floater
 {
   //your code here
-  background (0);
-  bob.show();
+  private int starX, starY;
+  private int starColor;
 
-
-  bob.move();
-  for (int i = 0; i < sally.length; i++) {
-    sally[i].show();
+  public Star() {
+    starColor = color ((int)(Math.random()*54)+193, (int)(Math.random()*54)+193, (int)(Math.random()*54)+193);
+    starX = (int)(Math.random()*500);
+    starY = (int)(Math.random()*500);
   }
-  if (bob.getCenterX() > width) {
-    for (int i = 0; i < sally.length; i++) {
-      sally[i].move();
-    }
+
+  public void show() {
+    fill (starColor);
+    noStroke();
+    ellipse (starX, starY, 5, 5);
   }
-}
-double i = 0;
-void keyPressed() {
 
-  if ((key == 'W' || key == 'w')) {
-    i+=.1;
-  } else if ((key =='S' || key == 's')) {
-    i = -.1;
-  } else if (key == ' ') {
-    bob.setXspeed(0);
-    bob.setYspeed(0);
-  }
-  bob.accelerate(i);
 
-  if ((key =='H' || key == 'h')) {
-    bob.hyperspace();
-  } 
 
-  if ((key =='D' || key == 'd')) {
-    bob.turn(5);
-  } else if ((key =='A' || key == 'a')) {
-    bob.turn(-5);
+  //if spaceship reaches edge of screen, move the stars
+  public void move() {
+    
   }
 }
