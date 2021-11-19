@@ -29,12 +29,21 @@ void keyPressed() {
 
   if ((key == 'W' || key == 'w')) {
     i+=.1;
-  } else if ((key =='S' || key == 's')) {
+  } else if (key == CODED){
+    if (keyCode == SHIFT){
     i = -.1;
-  } else if (key == ' ') {
+    }
+  }
+  
+  if ((key =='S' || key == 's')) {
     bob.setXspeed(0);
     bob.setYspeed(0);
+  } 
+  
+  if (key == ' ') {
+    //shoot something
   }
+  
   bob.accelerate(i);
 
   if ((key =='H' || key == 'h')) {
@@ -46,6 +55,8 @@ void keyPressed() {
   } else if ((key =='A' || key == 'a')) {
     bob.turn(-5);
   }
+  
+  
 }
 
 //change keybinds: space = to shoot (for later), shift = slow down, 's'/'S' = stop
