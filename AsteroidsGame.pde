@@ -47,3 +47,5 @@ void keyPressed() {
     bob.turn(-5);
   }
 }
+
+//change keybinds: space = to shoot (for later), shift = slow down, 's'/'S' = stop
