@@ -21,11 +21,13 @@ class Star //note that this class does NOT extend Floater
 
 
   //if spaceship reaches edge of screen, move the stars
-  public void move(double sAmount) {
+
+    
+    /* make myPointDirection = the myPointDirection of the spaceship,
+      public void move(double sAmount) {
     double dRadians = myPointDirection*(Math.PI/180);
     starSpeed += ((sAmount) * Math.cos(dRadians));
     
-    /* make myPointDirection = the myPointDirection of the spaceship,
     make sAmount = dAmount
     need a lot of getters
     need a lot of setters to stop the stars from moving when the spaceship stops
