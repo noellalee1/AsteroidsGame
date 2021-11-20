@@ -33,4 +33,4 @@ class Star //note that this class does NOT extend Floater
     need a lot of setters to stop the stars from moving when the spaceship stops
     */
   }
-}
+
