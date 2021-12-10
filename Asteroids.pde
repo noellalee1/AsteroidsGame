@@ -31,7 +31,7 @@ class Asteroid extends Floater {
     myYspeed = newYspeed;
     return (float) myYspeed;
   }
-  public int getNum(){
+  public int getNumRock(){
     return num;
   }
   public void move() {
