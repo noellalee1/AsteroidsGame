@@ -1,11 +1,9 @@
 class Spaceship extends Floater
 {
-  //your code here
-
   public Spaceship() {
-    corners = 3;
-    xCorners = new int[] {-10, 16, -10};
-    yCorners = new int[] {-10, 0, 10};
+    corners = 4;
+    xCorners = new int[] {-10, 16, -10, -10};
+    yCorners = new int[] {-10, 0, 10, 0};
     myCenterX = 250;
     myCenterY = 250;
 
@@ -15,6 +13,33 @@ class Spaceship extends Floater
 
     myXspeed = 0;
     myYspeed = 0;
+  }
+  public float getX() {
+    return (float) myCenterX;
+  }
+  public float getY() {
+    return (float) myCenterY;
+  }
+  public double getXspeed() {
+    return myXspeed;
+  }
+  public double getYspeed() {
+    return myYspeed;
+  }
+  public double getPointDirection() {
+    return myPointDirection;
+  }
+  public int setColor(int newColor) {
+    myColor = newColor;
+    return myColor;
+  }
+  public int[] setCornersX (int[] newX) {
+    xCorners = newX;
+    return xCorners;
+  }
+  public int[] setCornersY (int[] newY) {
+    yCorners = newY;
+    return yCorners;
   }
 
   public void hyperspace () {
@@ -30,15 +55,15 @@ class Spaceship extends Floater
     myXspeed = x;
     myYspeed = y;
   }
-  public void show ()  //Draws the floater at the current position  
-  {             
-    fill(myColor);   
-    stroke(myColor);    
+  public void show ()  //Draws the floater at the current position
+  {
+    fill(myColor);
+    stroke(myColor);
 
     //translate the (x,y) center of the ship to the correct position
     translate((float)myCenterX, (float)myCenterY);
 
-    //convert degrees to radians for rotate()     
+    //convert degrees to radians for rotate()
     float dRadians = (float)(myPointDirection*(Math.PI/180));
 
     //rotate so that the polygon will be drawn in the correct direction
@@ -56,28 +81,30 @@ class Spaceship extends Floater
     int[] rxCorners = new int[] {-20, -20, -18, -18, -16, -16, -14, -14, -12, -12};
     int[] ryCorners = new int[] {-2, -2, -4, 4, -6, 6, -8, 8, -10, 10, };
 
+      if (keyPressed) {
+        if ((key == 'W' || key == 'w')) {
+          fill (255, 0, 0);
+          stroke(255, 0, 0);
+          beginShape();
+          for (int nI = 0; nI < rxCorners.length; nI++)
+          {
+            vertex(rxCorners[nI], ryCorners[nI]);
+          }
+          endShape(CLOSE);
+        }
 
-    if ((key == 'W' || key == 'w')) {
-      fill (255, 0, 0);
-      stroke(255, 0, 0);
-      beginShape();
-      for (int nI = 0; nI < rxCorners.length; nI++)
-      {
-        vertex(rxCorners[nI], ryCorners[nI]);
+        if ((key =='S' || key == 's')) {
+          fill (0, 0, 255);
+          stroke(0, 0, 255);
+          beginShape();
+          for (int nI = 0; nI < rxCorners.length; nI++)
+          {
+            vertex(rxCorners[nI], ryCorners[nI]);
+          }
+          endShape(CLOSE);
+        }
       }
-      endShape(CLOSE);
-    } 
-
-    if ((key =='S' || key == 's')) {
-      fill (0, 0, 255);
-      stroke(0, 0, 255);
-      beginShape();
-      for (int nI = 0; nI < rxCorners.length; nI++)
-      {
-        vertex(rxCorners[nI], ryCorners[nI]);
-      }
-      endShape(CLOSE);
-    } 
+    
 
     //"unrotate" and "untranslate" in reverse order
     rotate(-1*dRadians);
