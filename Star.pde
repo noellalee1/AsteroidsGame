@@ -3,7 +3,7 @@ class Star
   private float starX, starY;
   private int starColor;
   private float starSpeedX, starSpeedY;
-  private float shipX, shipY;
+ // private float shipX, shipY;
 
   public Star() {
     starColor = color ((int)(Math.random()*54)+193, (int)(Math.random()*54)+193, (int)(Math.random()*54)+193);
