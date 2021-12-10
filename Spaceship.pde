@@ -29,7 +29,7 @@ class Spaceship extends Floater
   public double getPointDirection() {
     return myPointDirection;
   }
-  public int setColor(int newColor) {
+  public int setColorShip(int newColor) {
     myColor = newColor;
     return myColor;
   }
