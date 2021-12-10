@@ -1,35 +1,60 @@
-class Star //note that this class does NOT extend Floater
+class Star
 {
-  //your code here
-  private int starX, starY;
+  private float starX, starY;
   private int starColor;
-  private double starSpeed;
+  private float starSpeedX, starSpeedY;
+  private float shipX, shipY;
 
   public Star() {
     starColor = color ((int)(Math.random()*54)+193, (int)(Math.random()*54)+193, (int)(Math.random()*54)+193);
     starX = (int)(Math.random()*500);
     starY = (int)(Math.random()*500);
-    starSpeed = 0;
+    starSpeedX = .1;
+    starSpeedY = .1;
   }
 
   public void show() {
     fill (starColor);
     noStroke();
-    ellipse (starX, starY, 5, 5);
+    ellipse (starX, starY, 2.0, 2.0);
+  }
+  public float getStarX() {
+    return starX;
+  }
+  public float getStarY() {
+    return starY;
+  }
+  public double getStarSpeedX() {
+    return starSpeedX;
+  }
+  public double getStarSpeedY() {
+    return starSpeedY;
+  }
+  
+  public void move(){
+    starX += starSpeedX;
+    starY += starSpeedY;
+    if (starX > 500){
+      starX = 0;
+    }
+    if (starY > 500){
+      starY = 0;
+    }
   }
 
-
-
-  //if spaceship reaches edge of screen, move the stars
-
-    
-    /* make myPointDirection = the myPointDirection of the spaceship,
-      public void move(double sAmount) {
-    double dRadians = myPointDirection*(Math.PI/180);
-    starSpeed += ((sAmount) * Math.cos(dRadians));
-    
-    make sAmount = dAmount
-    need a lot of getters
-    need a lot of setters to stop the stars from moving when the spaceship stops
-    */
+  public void moveU()
+  {
+    starY = starY - starSpeedY;
+    if (starY < 0){
+      starY = 500;
+    }
   }
+ 
+  public void moveR()
+  {
+    starX = starX - starSpeedX;
+    if (starX < 0){
+      starX = 500;
+    }
+  }
+}
