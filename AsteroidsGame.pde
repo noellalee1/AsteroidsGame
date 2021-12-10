@@ -32,87 +32,87 @@ public void draw()
   } else if (point < 40) {
     text("Level 2", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (255, 0, 0));
+      shot.get(i).setColorshot(color (255, 0, 0));
     }
     lvl = 2;
   } else if (point < 60) {
     text("Level 3", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (255, 153, 0));
+      shot.get(i).setColorshot(color (255, 153, 0));
     }
     lvl = 3;
   } else if (point < 80) {
     text("Level 4", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (255, 242, 0));
+      shot.get(i).setColorshot(color (255, 242, 0));
     }
     lvl = 4;
   } else if (point < 100) {
     text("Level 5", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (0, 255, 55));
+      shot.get(i).setColorshot(color (0, 255, 55));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (2);
+      rock.get(i).setXspeedRock (2);
     }
     lvl = 5;
   } else if (point < 120) {
     text("Level 6", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (0, 255, 238));
+      shot.get(i).setColorshot(color (0, 255, 238));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (2);
+      rock.get(i).setXspeedRock (2);
     }
     lvl = 6;
   } else if (point < 140) {
     text("Level 7", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (0, 149, 255));
+      shot.get(i).setColorshot(color (0, 149, 255));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (3);
-      rock.get(i).setYspeed(3);
+      rock.get(i).setXspeedRock (3);
+      rock.get(i).setYspeedRock(3);
     }
     lvl = 7;
   } else if (point < 160) {
     text("Level 8", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (132, 0, 255));
+      shot.get(i).setColorshot(color (132, 0, 255));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (3);
-      rock.get(i).setYspeed(3);
+      rock.get(i).setXspeedRock (3);
+      rock.get(i).setYspeedRock(3);
     }
     lvl = 8;
   } else if (point < 180) {
     text("Level 9", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (204, 0, 255));
+      shot.get(i).setColorshot(color (204, 0, 255));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (4);
-      rock.get(i).setYspeed(4);
+      rock.get(i).setXspeedRock (4);
+      rock.get(i).setYspeedRock(4);
     }
     lvl = 9;
   } else if (point < 200) {
     text("Level 10", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color (255, 0, 179));
+      shot.get(i).setColorshot(color (255, 0, 179));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (4);
-      rock.get(i).setYspeed(4);
+      rock.get(i).setXspeedRock (4);
+      rock.get(i).setYspeedRock(4);
     }
     lvl = 10;
   } else {
     text("Level 11", 400, 25);
     for (int i = 0; i < shot.size(); i++) {
-      shot.get(i).setColor(color ((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
+      shot.get(i).setColorshot(color ((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
     }
     for (int i = 0; i < rock.size(); i++) {
-      rock.get(i).setXspeed (10);
-      rock.get(i).setYspeed(10);
+      rock.get(i).setXspeedRock (10);
+      rock.get(i).setYspeedRock(10);
     }
     lvl = 11;
   }
@@ -151,13 +151,13 @@ public void draw()
   }
 
   if (shipColor == 0) {
-    bob.setColor(color(255));
+    bob.setColorShip(color(255));
   } else if (shipColor == 1) {
-    bob.setColor(color(255, 0, 0));
+    bob.setColorShip(color(255, 0, 0));
   } else if (shipColor == 2) {
-    bob.setColor(color(0, 255, 0));
+    bob.setColorShip(color(0, 255, 0));
   } else if (shipColor == 3) {
-    bob.setColor(color(0, 136, 255));
+    bob.setColorShip(color(0, 136, 255));
   }
   
   if (paused){
@@ -170,15 +170,15 @@ public void draw()
     for (int i = 0; i < rock.size(); i++) {
       rock.get(i).move();
       rock.get(i).show();
-      float f = dist(bob.getX(), bob.getY(), rock.get(i).getX(), rock.get(i).getY());
-      int n = rock.get(i).getNum();
+      float fb = dist(bob.getX(), bob.getY(), rock.get(i).getXrock(), rock.get(i).getYrock());
+      int n = rock.get(i).getNumRock();
       if (n==0 || n==3) {
-        if (f < 15) {
+        if (fb < 15) {
           rock.remove(i);
           point-=3;
         }
       } else if (n==1 || n==2) {
-        if (f < 30) {
+        if (fb < 30) {
           rock.remove(i);
           point-=3;
         }
@@ -200,16 +200,16 @@ public void draw()
     for (int j = 0; j < shot.size(); j++) {
       shot.get(j).show();
       shot.get(j).move();
-      if (shot.get(j).getX() > 600 || shot.get(j).getX() < 0 || shot.get(j).getY() < 0 || shot.get(j).getY() > 600) {
+      if (shot.get(j).getXshot() > 600 || shot.get(j).getXshot() < 0 || shot.get(j).getYshot() < 0 || shot.get(j).getYshot() > 600) {
         shot.remove(j);
         j--;
       }
     }
     for (int j = 0; j < rock.size(); j++) {
       for (int i = 0; i < shot.size(); i++) {
-        float f = dist(shot.get(i).getX(), shot.get(i).getY(), rock.get(j).getX(), rock.get(j).getY());
+        float fs = dist(shot.get(i).getXshot(), shot.get(i).getYshot(), rock.get(j).getXrock(), rock.get(j).getYrock());
 
-        if (f < 20) {
+        if (fs < 20) {
           rock.remove(j);
           shot.remove(i);
           point++;
@@ -225,12 +225,12 @@ double d = 0;
 void keyReleased() {
   if ((key == 'W' || key == 'w')) {
     i=0;
-    bob.setSpeed(0, 0);
+    bob.setSpeedShip(0, 0);
   }
 
   if ((key =='S' || key == 's')) {
     i=0;
-    bob.setSpeed(0, 0);
+    bob.setSpeedShip(0, 0);
   }
 }
 void mouseWheel() {
@@ -244,8 +244,8 @@ void keyPressed() {
 
     if (paused) {
       for (int i = 0; i < rock.size(); i++) {
-        rock.get(i).setXspeed (0);
-        rock.get(i).setYspeed(0);
+        rock.get(i).setXspeedRock(0);
+        rock.get(i).setYspeedRock(0);
       }
     }
   }
@@ -253,8 +253,8 @@ void keyPressed() {
     {
       paused = false;
       for (int i = 0; i < rock.size(); i++) {
-        rock.get(i).setXspeed (1);
-        rock.get(i).setYspeed(1);
+        rock.get(i).setXspeedRock (1);
+        rock.get(i).setYspeedRock(1);
       }
     }
   }
@@ -271,10 +271,6 @@ void keyPressed() {
   if ((key =='H' || key == 'h')) {
     bob.hyperspace();
   }
-
-  //if (key == ' ') {
-  //shot.add(new Bullet(bob));
-  //}
 
   if ((key =='D' || key == 'd')) {
     bob.turn(25);
