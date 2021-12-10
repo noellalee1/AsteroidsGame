@@ -51,7 +51,7 @@ class Spaceship extends Floater
     myPointDirection = (float)(Math.random()*360);
   }
 
-  public void setSpeed(int x, int y) {
+  public void setSpeedShip(int x, int y) {
     myXspeed = x;
     myYspeed = y;
   }
