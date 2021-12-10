@@ -233,9 +233,6 @@ void mouseWheel() {
 }
 
 void keyPressed() {
-
-  
-    
   
   if ((key == 'W' || key == 'w')) {
     t+=.01;
@@ -287,18 +284,21 @@ int shipColor = 0;
 
 void mouseClicked() {
   if (mouseButton == LEFT) { //change color
+    shot.add(new Bullet(bob));
+  }
+
+  if (mouseButton == RIGHT) { //change shape
     if (shipColor < 3) {
       shipColor++;
     } else {
       shipColor = 0;
     }
-  }
-
-  if (mouseButton == RIGHT) { //change shape
+    /*
     if (shape < 1) {
       shape++;
     } else {
       shape = 0;
     }
+    */
   }
 }
