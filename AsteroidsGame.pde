@@ -160,12 +160,7 @@ public void draw()
     bob.setColorShip(color(0, 136, 255));
   }
   
-  if (paused){
-    textSize(150);
-    text("Paused", 25, 480);
-  }
   
-  if (paused == false) {
 
     for (int i = 0; i < rock.size(); i++) {
       rock.get(i).move();
@@ -218,7 +213,7 @@ public void draw()
       }
     }
   }
-}
+
 double t = 0;
 double d = 0;
 
@@ -236,28 +231,12 @@ void keyReleased() {
 void mouseWheel() {
   shot.add(new Bullet(bob));
 }
-boolean paused = false;
+
 void keyPressed() {
 
-  if (key == 'q' || key == 'Q') {
-    paused = true;
-
-    if (paused) {
-      for (int i = 0; i < rock.size(); i++) {
-        rock.get(i).setXspeedRock(0);
-        rock.get(i).setYspeedRock(0);
-      }
-    }
-  }
-  if (key == ' ') {
-    {
-      paused = false;
-      for (int i = 0; i < rock.size(); i++) {
-        rock.get(i).setXspeedRock (1);
-        rock.get(i).setYspeedRock(1);
-      }
-    }
-  }
+  
+    
+  
   if ((key == 'W' || key == 'w')) {
     t+=.01;
   }
