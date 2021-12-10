@@ -245,7 +245,7 @@ void keyPressed() {
     t -=.01;
   }
 
-  bob.accelerate(i);
+  bob.accelerate(t);
 
   if ((key =='H' || key == 'h')) {
     bob.hyperspace();
