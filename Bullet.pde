@@ -8,13 +8,13 @@ class Bullet extends Floater {
     myColor = (255);
     accelerate(6.0);
   }
-  public float getX() {
+  public float getXshot() {
     return (float) myCenterX;
   }
-  public float getY() {
+  public float getYshot() {
     return (float) myCenterY;
   }
-  public int setColor(int col){
+  public int setColorshot(int col){
     myColor = col;
     return myColor;
   }
